@@ -22,24 +22,19 @@ class ExpensesController < ApplicationController
   # POST /expenses
   def create
     @expense = Expense.new(expense_params)
-
-    respond_to do |format|
-      if @expense.save
-        format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
-      else
-        format.html { render action: 'new' }
-      end
+    if @expense.save
+      redirect_to @expense, notice: 'Expense was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
   # PATCH/PUT /expenses/1
   def update
-    respond_to do |format|
-      if @expense.update(expense_params)
-        format.html { redirect_to @expense, notice: 'Expense was successfully updated.' }
-      else
-        format.html { render action: 'edit' }
-      end
+    if @expense.update(expense_params)
+      redirect_to @expense, notice: 'Expense was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
