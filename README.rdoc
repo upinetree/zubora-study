@@ -1,28 +1,6 @@
-== README
+# ずぼら家計簿
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## 家計簿を付けるのをがんばらない
+* twitterのように情報を制限する
+* シンプルに手軽に家計簿をつけられるようにする
+* 大雑把な情報から傾向を把握する
