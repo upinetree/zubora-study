@@ -1,0 +1,31 @@
+<h1>Listing expenses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Memo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expenses.each do |expense| %>
+      <tr>
+        <td><%= expense.price %></td>
+        <td><%= expense.category_id %></td>
+        <td><%= expense.memo %></td>
+        <td><%= link_to 'Show', expense %></td>
+        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+        <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Expense', new_expense_path %>
