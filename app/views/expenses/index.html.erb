@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Price</th>
+      <th>Amount</th>
       <th>Category</th>
       <th>Memo</th>
       <th></th>
@@ -15,7 +15,7 @@
   <tbody>
     <% @expenses.each do |expense| %>
       <tr>
-        <td><%= expense.price %></td>
+        <td><%= expense.amount %></td>
         <td><%= expense.category_id %></td>
         <td><%= expense.memo %></td>
         <td><%= link_to 'Show', expense %></td>
