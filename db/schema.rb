@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131128064249) do
+ActiveRecord::Schema.define(version: 20131128072218) do
 
   create_table "expenses", force: true do |t|
-    t.integer  "price"
+    t.integer  "amount"
     t.integer  "category_id"
     t.string   "memo"
     t.datetime "created_at"
