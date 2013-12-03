@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe ExpensesController do
 
-  let(:valid_attributes) { { amount: 100 } }
+  let(:valid_attributes) { FactoryGirl.attributes_for(:expense) }
   let(:invalid_attributes) { { amount: "string" } }
   let(:valid_session) { {} }
 
-  let!(:expense) { Expense.create! valid_attributes }
+  let!(:expense) { FactoryGirl.create :expense }
 
   describe "GET index" do
     it "assigns all expenses as @expenses" do
