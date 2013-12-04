@@ -24,7 +24,7 @@ describe Expense do
 
       context "負のとき" do
         let(:amount) { -100 }
-        it { should be_false }
+        it { should be_true }
       end
 
       context "文字列のとき" do
