@@ -41,9 +41,7 @@ class ExpensesController < ApplicationController
   # DELETE /expenses/1
   def destroy
     @expense.destroy
-    respond_to do |format|
-      format.html { redirect_to expenses_url }
-    end
+    redirect_to expenses_url
   end
 
   private
