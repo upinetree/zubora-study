@@ -3,8 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th></th>
-      <th></th>
+      <th>Name</th>
+      <th>Color</th>
       <th></th>
     </tr>
   </thead>
@@ -12,6 +12,8 @@
   <tbody>
     <% @expense_categories.each do |expense_category| %>
       <tr>
+        <td><%= expense_category.name %></td>
+        <td><%= expense_category.color %></td>
         <td><%= link_to 'Show', expense_category %></td>
         <td><%= link_to 'Edit', edit_expense_category_path(expense_category) %></td>
         <td><%= link_to 'Destroy', expense_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
