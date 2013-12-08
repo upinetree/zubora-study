@@ -2,14 +2,8 @@ require 'spec_helper'
 
 describe ExpenseCategoriesController do
 
-  # This should return the minimal set of attributes required to create a valid
-  # ExpenseCategory. As you add validations to ExpenseCategory, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) { {  } }
-
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # ExpenseCategoriesController. Be sure to keep this updated too.
+  let(:valid_attributes) { FactoryGirl.attributes_for(:expense_category) }
+  let(:invalid_attributes) { { name: "", color: "" } }
   let(:valid_session) { {} }
 
   describe "GET index" do
@@ -67,14 +61,14 @@ describe ExpenseCategoriesController do
       it "assigns a newly created but unsaved expense_category as @expense_category" do
         # Trigger the behavior that occurs when invalid params are submitted
         ExpenseCategory.any_instance.stub(:save).and_return(false)
-        post :create, {:expense_category => {  }}, valid_session
+        post :create, {:expense_category => invalid_attributes}, valid_session
         assigns(:expense_category).should be_a_new(ExpenseCategory)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         ExpenseCategory.any_instance.stub(:save).and_return(false)
-        post :create, {:expense_category => {  }}, valid_session
+        post :create, {:expense_category => invalid_attributes}, valid_session
         response.should render_template("new")
       end
     end
@@ -88,8 +82,8 @@ describe ExpenseCategoriesController do
         # specifies that the ExpenseCategory created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        ExpenseCategory.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => expense_category.to_param, :expense_category => { "these" => "params" }}, valid_session
+        ExpenseCategory.any_instance.should_receive(:update).with({ "name" => "CategoryA" })
+        put :update, {:id => expense_category.to_param, :expense_category => { "name" => "CategoryA" }}, valid_session
       end
 
       it "assigns the requested expense_category as @expense_category" do
@@ -110,7 +104,7 @@ describe ExpenseCategoriesController do
         expense_category = ExpenseCategory.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         ExpenseCategory.any_instance.stub(:save).and_return(false)
-        put :update, {:id => expense_category.to_param, :expense_category => {  }}, valid_session
+        put :update, {:id => expense_category.to_param, :expense_category => invalid_attributes}, valid_session
         assigns(:expense_category).should eq(expense_category)
       end
 
@@ -118,7 +112,7 @@ describe ExpenseCategoriesController do
         expense_category = ExpenseCategory.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         ExpenseCategory.any_instance.stub(:save).and_return(false)
-        put :update, {:id => expense_category.to_param, :expense_category => {  }}, valid_session
+        put :update, {:id => expense_category.to_param, :expense_category => invalid_attributes}, valid_session
         response.should render_template("edit")
       end
     end
