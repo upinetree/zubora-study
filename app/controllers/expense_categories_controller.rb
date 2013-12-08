@@ -2,13 +2,11 @@ class ExpenseCategoriesController < ApplicationController
   before_action :set_expense_category, only: [:show, :edit, :update, :destroy]
 
   # GET /expense_categories
-  # GET /expense_categories.json
   def index
     @expense_categories = ExpenseCategory.all
   end
 
   # GET /expense_categories/1
-  # GET /expense_categories/1.json
   def show
   end
 
@@ -22,43 +20,28 @@ class ExpenseCategoriesController < ApplicationController
   end
 
   # POST /expense_categories
-  # POST /expense_categories.json
   def create
     @expense_category = ExpenseCategory.new(expense_category_params)
-
-    respond_to do |format|
-      if @expense_category.save
-        format.html { redirect_to @expense_category, notice: 'Expense category was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @expense_category }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @expense_category.errors, status: :unprocessable_entity }
-      end
+    if @expense_category.save
+      redirect_to @expense_category, notice: 'Expense category was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
   # PATCH/PUT /expense_categories/1
-  # PATCH/PUT /expense_categories/1.json
   def update
-    respond_to do |format|
-      if @expense_category.update(expense_category_params)
-        format.html { redirect_to @expense_category, notice: 'Expense category was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @expense_category.errors, status: :unprocessable_entity }
-      end
+    if @expense_category.update(expense_category_params)
+      redirect_to @expense_category, notice: 'Expense category was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
   # DELETE /expense_categories/1
-  # DELETE /expense_categories/1.json
   def destroy
     @expense_category.destroy
-    respond_to do |format|
-      format.html { redirect_to expense_categories_url }
-      format.json { head :no_content }
-    end
+    redirect_to expense_categories_url
   end
 
   private
