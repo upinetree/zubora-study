@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :expense_category do
-    name "MyString"
-    color "MyString"
+    name "MyCategory"
+    color "#FF6347"
   end
 end
