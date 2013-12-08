@@ -6,9 +6,10 @@ describe ExpenseCategoriesController do
   let(:invalid_attributes) { { name: "", color: "" } }
   let(:valid_session) { {} }
 
+  let!(:expense_category) { FactoryGirl.create :expense_category }
+
   describe "GET index" do
     it "assigns all expense_categories as @expense_categories" do
-      expense_category = ExpenseCategory.create! valid_attributes
       get :index, {}, valid_session
       assigns(:expense_categories).should eq([expense_category])
     end
@@ -16,7 +17,6 @@ describe ExpenseCategoriesController do
 
   describe "GET show" do
     it "assigns the requested expense_category as @expense_category" do
-      expense_category = ExpenseCategory.create! valid_attributes
       get :show, {:id => expense_category.to_param}, valid_session
       assigns(:expense_category).should eq(expense_category)
     end
@@ -31,7 +31,6 @@ describe ExpenseCategoriesController do
 
   describe "GET edit" do
     it "assigns the requested expense_category as @expense_category" do
-      expense_category = ExpenseCategory.create! valid_attributes
       get :edit, {:id => expense_category.to_param}, valid_session
       assigns(:expense_category).should eq(expense_category)
     end
@@ -77,23 +76,21 @@ describe ExpenseCategoriesController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested expense_category" do
-        expense_category = ExpenseCategory.create! valid_attributes
         # Assuming there are no other expense_categories in the database, this
         # specifies that the ExpenseCategory created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        ExpenseCategory.any_instance.should_receive(:update).with({ "name" => "CategoryA" })
-        put :update, {:id => expense_category.to_param, :expense_category => { "name" => "CategoryA" }}, valid_session
+        params = { "name" => "CategoryA" }
+        ExpenseCategory.any_instance.should_receive(:update).with(params)
+        put :update, {:id => expense_category.to_param, :expense_category => params}, valid_session
       end
 
       it "assigns the requested expense_category as @expense_category" do
-        expense_category = ExpenseCategory.create! valid_attributes
         put :update, {:id => expense_category.to_param, :expense_category => valid_attributes}, valid_session
         assigns(:expense_category).should eq(expense_category)
       end
 
       it "redirects to the expense_category" do
-        expense_category = ExpenseCategory.create! valid_attributes
         put :update, {:id => expense_category.to_param, :expense_category => valid_attributes}, valid_session
         response.should redirect_to(expense_category)
       end
@@ -101,7 +98,6 @@ describe ExpenseCategoriesController do
 
     describe "with invalid params" do
       it "assigns the expense_category as @expense_category" do
-        expense_category = ExpenseCategory.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         ExpenseCategory.any_instance.stub(:save).and_return(false)
         put :update, {:id => expense_category.to_param, :expense_category => invalid_attributes}, valid_session
@@ -109,7 +105,6 @@ describe ExpenseCategoriesController do
       end
 
       it "re-renders the 'edit' template" do
-        expense_category = ExpenseCategory.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         ExpenseCategory.any_instance.stub(:save).and_return(false)
         put :update, {:id => expense_category.to_param, :expense_category => invalid_attributes}, valid_session
@@ -120,14 +115,12 @@ describe ExpenseCategoriesController do
 
   describe "DELETE destroy" do
     it "destroys the requested expense_category" do
-      expense_category = ExpenseCategory.create! valid_attributes
       expect {
         delete :destroy, {:id => expense_category.to_param}, valid_session
       }.to change(ExpenseCategory, :count).by(-1)
     end
 
     it "redirects to the expense_categories list" do
-      expense_category = ExpenseCategory.create! valid_attributes
       delete :destroy, {:id => expense_category.to_param}, valid_session
       response.should redirect_to(expense_categories_url)
     end

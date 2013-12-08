@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :expense_category do
-    name "MyCategory"
+    sequence(:name){|n| "Category#{n}"}
     color "#FF6347"
   end
 end
