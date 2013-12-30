@@ -12,24 +12,6 @@ describe ExpenseCategory do
         let(:name) { "" }
         it { should be_false }
       end
-
-      context "他のカテゴリ名と重複するとき" do
-        let(:name) { "Duplicated" }
-
-        it "falseとなる" do
-          FactoryGirl.create(:expense_category, name: name)
-          should be_false
-        end
-      end
-
-      context "他のカテゴリ名と重複しないとき" do
-        let(:name) { "Unique" }
-
-        it "trueとなる" do
-          FactoryGirl.create(:expense_category)
-          should be_true
-        end
-      end
     end
 
     describe "color" do
