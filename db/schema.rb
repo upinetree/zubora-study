@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20131208090908) do
 
   create_table "expense_categories", force: true do |t|
-    t.string   "name"
-    t.string   "color"
+    t.string   "name",       null: false
+    t.string   "color",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
