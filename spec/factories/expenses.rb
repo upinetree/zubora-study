@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :expense do
     amount 100
-    category_id 1
+    expense_category
     memo "My Memo"
   end
 end
