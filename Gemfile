@@ -44,6 +44,10 @@ group :development, :test do
   gem 'better_errors'
 end
 
+group :test do
+  gem 'shoulda-matchers'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
