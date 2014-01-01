@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208090908) do
+ActiveRecord::Schema.define(version: 20131231075747) do
 
   create_table "expense_categories", force: true do |t|
     t.string   "name",       null: false
@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 20131208090908) do
   end
 
   create_table "expenses", force: true do |t|
-    t.integer  "amount",      null: false
-    t.integer  "category_id"
+    t.integer  "amount",              null: false
+    t.integer  "expense_category_id"
     t.string   "memo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "expenses", ["category_id"], name: "index_expenses_on_category_id"
+  add_index "expenses", ["expense_category_id"], name: "index_expenses_on_expense_category_id"
 
 end

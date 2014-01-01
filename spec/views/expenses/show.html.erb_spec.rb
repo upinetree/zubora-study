@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "expenses/show" do
   before(:each) do
-    @expense = assign(:expense, stub_model(Expense))
+    @expense = assign(:expense, FactoryGirl.create(:expense))
   end
 
   it "renders attributes in <p>" do

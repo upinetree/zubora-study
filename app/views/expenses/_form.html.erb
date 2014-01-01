@@ -16,8 +16,11 @@
     <%= f.number_field :amount %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.number_field :category_id %>
+    <%= f.label :expense_category_id %><br>
+    <% ExpenseCategory.all.each do |category| %>
+      <%= f.radio_button :expense_category_id, category.id %>
+      <%= f.label :expense_category_id, category.name, value: category.id %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :memo %><br>

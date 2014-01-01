@@ -16,7 +16,7 @@
     <% @expenses.each do |expense| %>
       <tr>
         <td><%= expense.amount %></td>
-        <td><%= expense.category_id %></td>
+        <td><%= expense.expense_category.name %></td>
         <td><%= expense.memo %></td>
         <td><%= link_to 'Show', expense %></td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>

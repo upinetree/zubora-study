@@ -35,6 +35,19 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'awesome_print'
+  gem 'better_errors'
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end
 
 # Use ActiveModel has_secure_password
