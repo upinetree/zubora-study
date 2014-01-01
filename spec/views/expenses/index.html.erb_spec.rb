@@ -2,10 +2,7 @@ require 'spec_helper'
 
 describe "expenses/index" do
   before(:each) do
-    assign(:expenses, [
-      stub_model(Expense),
-      stub_model(Expense)
-    ])
+    assign(:expenses, FactoryGirl.create_list(:expense, 2))
   end
 
   it "renders a list of expenses" do
