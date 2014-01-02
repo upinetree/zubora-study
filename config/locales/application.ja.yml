@@ -1,0 +1,33 @@
+ja:
+  activerecord:
+    models:
+      expense: "支出項目"
+      expense_category: "支出カテゴリ"
+    attributes:
+      expense:
+        amount: "金額（円）"
+        memo: "メモ"
+      expense_category:
+        name: "カテゴリ名"
+        color: "表示色"
+  view:
+    expense:
+      index: "買ったもの"
+      new: "新しく買ったものを登録"
+      show: "買ったもの詳細"
+      edit: "買ったもの編集"
+  label:
+    index: "一覧"
+    new: "新規"
+    edit: "編集"
+    show: "詳細"
+    edit: "編集"
+    destroy: "削除"
+    back: "戻る"
+  message:
+    confirm:
+      destroy: "本当に削除しますか？"
+    notice:
+      errors: "エラーがあります。確認して下さい"
+      created: "登録しました"
+      updated: "更新しました"

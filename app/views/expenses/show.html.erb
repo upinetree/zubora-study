@@ -1,19 +1,21 @@
+<h1><%= t('view.expense.show') %></h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Amount:</strong>
+  <strong><%= Expense.human_attribute_name :amount %>:</strong>
   <%= @expense.amount %>
 </p>
 
 <p>
-  <strong>Category:</strong>
+  <strong><%= ExpenseCategory.human_attribute_name :name %>:</strong>
   <%= @expense.expense_category.name %>
 </p>
 
 <p>
-  <strong>Memo:</strong>
+  <strong><%= Expense.human_attribute_name :memo %>:</strong>
   <%= @expense.memo %>
 </p>
 
-<%= link_to 'Edit', edit_expense_path(@expense) %> |
-<%= link_to 'Back', expenses_path %>
+<%= link_to t('label.edit'), edit_expense_path(@expense) %> |
+<%= link_to t('label.back'), expenses_path %>
