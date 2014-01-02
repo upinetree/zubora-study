@@ -23,7 +23,7 @@ class ExpenseCategoriesController < ApplicationController
   def create
     @expense_category = ExpenseCategory.new(expense_category_params)
     if @expense_category.save
-      redirect_to @expense_category, notice: 'Expense category was successfully created.'
+      redirect_to @expense_category, notice: I18n.t('message.notice.created')
     else
       render action: 'new'
     end
@@ -32,7 +32,7 @@ class ExpenseCategoriesController < ApplicationController
   # PATCH/PUT /expense_categories/1
   def update
     if @expense_category.update(expense_category_params)
-      redirect_to @expense_category, notice: 'Expense category was successfully updated.'
+      redirect_to @expense_category, notice: I18n.t('message.notice.updated')
     else
       render action: 'edit'
     end
