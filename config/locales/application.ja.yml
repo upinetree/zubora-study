@@ -33,6 +33,7 @@ ja:
     confirm:
       destroy: "本当に削除しますか？"
     notice:
-      errors: "エラーがあります。確認して下さい"
       created: "登録しました"
       updated: "更新しました"
+    error:
+      invalid_input: "エラーがあります。確認して下さい"
