@@ -1,0 +1,17 @@
+%h1= t('view.expense_category.index')
+%table
+  %thead
+    %tr
+      %th= ExpenseCategory.human_attribute_name :name
+      %th= ExpenseCategory.human_attribute_name :color
+      %th
+  %tbody
+    - @expense_categories.each do |expense_category|
+      %tr
+        %td= expense_category.name
+        %td= expense_category.color
+        %td= link_to t('label.show'), expense_category
+        %td= link_to t('label.edit'), edit_expense_category_path(expense_category)
+        %td= link_to t('label.destroy'), expense_category, method: :delete, data: { confirm: t('message.confirm.destroy') }
+%br/
+= link_to t('label.new'), new_expense_category_path
