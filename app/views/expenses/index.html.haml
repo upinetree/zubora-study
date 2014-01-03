@@ -1,0 +1,21 @@
+%h1= t('view.expense.index')
+%table
+  %thead
+    %tr
+      %th= Expense.human_attribute_name :amount
+      %th= ExpenseCategory.human_attribute_name :name
+      %th= Expense.human_attribute_name :memo
+      %th
+      %th
+      %th
+  %tbody
+    - @expenses.each do |expense|
+      %tr
+        %td= expense.amount
+        %td= expense.expense_category.name
+        %td= expense.memo
+        %td= link_to t('label.show'), expense
+        %td= link_to t('label.edit'), edit_expense_path(expense)
+        %td= link_to t('label.destroy'), expense, method: :delete, data: { confirm: t('message.confirm.destroy') }
+%br/
+= link_to t('label.new'), new_expense_path

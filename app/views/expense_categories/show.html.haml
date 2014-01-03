@@ -1,0 +1,15 @@
+%h1= t('view.expense_category.show')
+%p#notice= notice
+%p
+  %strong
+    = ExpenseCategory.human_attribute_name :name
+    \:
+  = @expense_category.name
+%p
+  %strong
+    = ExpenseCategory.human_attribute_name :color
+    \:
+  = @expense_category.color
+= link_to t('label.edit'), edit_expense_category_path(@expense_category)
+|
+\#{link_to t('label.back'), expense_categories_path}

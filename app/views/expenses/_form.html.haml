@@ -1,0 +1,23 @@
+= form_for(@expense) do |f|
+  - if @expense.errors.any?
+    #error_explanation
+      %h2= t('message.error.invalid_input')
+      %ul
+        - @expense.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :amount
+    %br/
+    = f.number_field :amount
+  .field
+    = f.label ExpenseCategory.model_name.human
+    %br/
+    - ExpenseCategory.all.each do |category|
+      = f.radio_button :expense_category_id, category.id
+      = f.label :expense_category_id, category.name, value: category.id
+  .field
+    = f.label :memo
+    %br/
+    = f.text_field :memo
+  .actions
+    = f.submit
