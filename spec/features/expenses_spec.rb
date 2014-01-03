@@ -20,12 +20,12 @@ describe "支出項目管理" do
         fill_in :expense_amount,  with: "1000"
         fill_in :expense_memo,    with: "メモ"
         choose  :expense_expense_category_id_1
-        click_button "Create Expense"
+        click_button "登録する"
       end
 
       it "登録が成功する" do
         within 'p#notice' do
-          expect(page).to have_content("successfully")
+          expect(page).to have_content(I18n.t('message.notice.created'))
         end
       end
 

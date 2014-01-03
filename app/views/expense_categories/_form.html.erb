@@ -1,7 +1,7 @@
 <%= form_for(@expense_category) do |f| %>
   <% if @expense_category.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@expense_category.errors.count, "error") %> prohibited this expense_category from being saved:</h2>
+      <h2><%= t('message.error.invalid_input') %></h2>
 
       <ul>
       <% @expense_category.errors.full_messages.each do |msg| %>

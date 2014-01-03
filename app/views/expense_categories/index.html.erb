@@ -1,10 +1,10 @@
-<h1>Listing expense_categories</h1>
+<h1><%= t('view.expense_category.index') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Color</th>
+      <th><%= ExpenseCategory.human_attribute_name :name %></th>
+      <th><%= ExpenseCategory.human_attribute_name :color %></th>
       <th></th>
     </tr>
   </thead>
@@ -14,9 +14,9 @@
       <tr>
         <td><%= expense_category.name %></td>
         <td><%= expense_category.color %></td>
-        <td><%= link_to 'Show', expense_category %></td>
-        <td><%= link_to 'Edit', edit_expense_category_path(expense_category) %></td>
-        <td><%= link_to 'Destroy', expense_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('label.show'), expense_category %></td>
+        <td><%= link_to t('label.edit'), edit_expense_category_path(expense_category) %></td>
+        <td><%= link_to t('label.destroy'), expense_category, method: :delete, data: { confirm: t('message.confirm.destroy') } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Expense category', new_expense_category_path %>
+<%= link_to t('label.new'), new_expense_category_path %>

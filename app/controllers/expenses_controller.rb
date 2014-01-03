@@ -23,7 +23,7 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     if @expense.save
-      redirect_to @expense, notice: 'Expense was successfully created.'
+      redirect_to @expense, notice: I18n.t('message.notice.created')
     else
       render action: 'new'
     end
@@ -32,7 +32,7 @@ class ExpensesController < ApplicationController
   # PATCH/PUT /expenses/1
   def update
     if @expense.update(expense_params)
-      redirect_to @expense, notice: 'Expense was successfully updated.'
+      redirect_to @expense, notice: I18n.t('message.notice.created')
     else
       render action: 'edit'
     end
